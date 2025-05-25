@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useDebounce } from 'use-debounce';
 import style from './Filter.module.css';
 
 const Filter = () => {

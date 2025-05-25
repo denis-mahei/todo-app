@@ -1,12 +1,13 @@
 import Todo from '../Todo/Todo.jsx';
 import Grid from '../Grid/Grid.jsx';
-import Text from '../Text/Text';
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
-    <>
-      <Text textAlign="center">We did not find any todo😯</Text>
-    </>
+    <Grid>
+      {todos.map((todo, index) => (
+        <Todo key={todo.id} {...todo} index={index} />
+      ))}
+    </Grid>
   );
 };
 
