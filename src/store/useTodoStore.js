@@ -5,7 +5,7 @@ const useTodoStore = create(set => ({
   addTodo: newTodo => set(state => ({ todos: [...state.todos, newTodo] })),
   deleteTodo: todoId =>
     set(state => ({ todos: state.todos.filter(todo => todoId !== todo.id) })),
-  editTodo: todoId => set((state)=> ({todo => {
-
-}}))
+  editTodo: todoId => set((state)=> ({todos: state.todos.map(todo => {
+    const
+    })}))
 }));
