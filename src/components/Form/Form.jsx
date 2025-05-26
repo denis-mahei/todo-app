@@ -3,15 +3,8 @@ import { FiSearch } from 'react-icons/fi';
 import style from './Form.module.css';
 
 const Form = () => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    const newTodo = form.elements.search.value;
-    form.reset();
-  };
-
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
+    <form className={style.form} onSubmit={{}}>
       <button className={style.button} type="submit">
         <FiSearch size="16px" />
       </button>

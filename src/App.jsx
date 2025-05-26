@@ -12,12 +12,7 @@ export const App = () => {
       <Header />
       <Section>
         <Container>
-          {!isEdit ? <Form /> : <EditForm />}
-          {todos.length > 0 ? (
-            <TodoList todos={todos} />
-          ) : (
-            <Text textAlign="center">Create your first todo😉</Text>
-          )}
+          <Text textAlign="center">Create your first todo😉</Text>
         </Container>
       </Section>
     </>
