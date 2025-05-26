@@ -26,6 +26,7 @@ export const useTodoStore = create(
             todo.id === todoId ? { ...todo, ...updatedTodo } : todo,
           ),
         })),
+      setCurrentTodo: todo => set(() => ({ currentTodo: todo })),
       currentTodo: null,
     }),
     {

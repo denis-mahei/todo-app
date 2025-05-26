@@ -1,16 +1,25 @@
+import { useTodoStore } from '../../store/useTodoStore.js';
 import Text from '../Text/Text.jsx';
 import GridItem from '../GridItem/GridItem.jsx';
 import { RiDeleteBinLine, RiEdit2Line } from 'react-icons/ri';
+
 import style from './Todo.module.css';
-import { useTodoStore } from '../../store/useTodoStore.js';
 
 const Todo = ({ id, index, text }) => {
   const delTodo = useTodoStore(state => state.deleteTodo);
+  const editTodo = useTodoStore(state => state.editTodo);
+  const setCurrentTodo = useTodoStore(state => state.setCurrentTodo);
 
   const handleDelete = () => {
     delTodo(id);
   };
 
+  const handleEditTodo = () => {
+    setCurrentTodo({
+      id,
+      text,
+    });
+  };
   return (
     <GridItem>
       <div className={style.box}>
@@ -26,7 +35,11 @@ const Todo = ({ id, index, text }) => {
         >
           <RiDeleteBinLine size={24} />
         </button>
-        <button className={style.editButton} type="button">
+        <button
+          className={style.editButton}
+          type="button"
+          onClick={handleEditTodo}
+        >
           <RiEdit2Line size={24} />
         </button>
       </div>

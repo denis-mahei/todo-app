@@ -1,7 +1,7 @@
 import { FiSearch } from 'react-icons/fi';
+import { useTodoStore } from '../../store/useTodoStore.js';
 
 import style from './Form.module.css';
-import { useTodoStore } from '../../store/useTodoStore.js';
 
 const Form = () => {
   const addNewTodo = useTodoStore(state => state.addTodo);

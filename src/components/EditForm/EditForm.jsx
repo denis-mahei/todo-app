@@ -2,6 +2,7 @@ import { RiSaveLine } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
 
 import style from './EditForm.module.css';
+import { useTodoStore } from '../../store/useTodoStore.js';
 
 const EditForm = () => {
   return (
