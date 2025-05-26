@@ -7,7 +7,6 @@ import style from './Todo.module.css';
 
 const Todo = ({ id, index, text }) => {
   const delTodo = useTodoStore(state => state.deleteTodo);
-  const editTodo = useTodoStore(state => state.editTodo);
   const setCurrentTodo = useTodoStore(state => state.setCurrentTodo);
 
   const handleDelete = () => {
