@@ -1,5 +1,4 @@
 import { FiSearch } from 'react-icons/fi';
-import { useTodoStore } from '../../store/useTodoStore.js';
 
 import style from './Form.module.css';
 
