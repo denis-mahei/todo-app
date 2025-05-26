@@ -5,14 +5,28 @@ import Section from './components/Section/Section';
 import Form from './components/Form/Form.jsx';
 import EditForm from './components/EditForm/EditForm.jsx';
 import TodoList from './components/TodoList/TodoList.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchTodos } from './redux/todos/operations.js';
+import { selectLoading } from './redux/todos/todosSlice.js';
+import Loader from './components/Loader/Loader.jsx';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const loader = useSelector(selectLoading);
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [dispatch]);
+
   return (
     <>
       <Header />
       <Section>
         <Container>
+          {loader && <Loader />}
           <Text textAlign="center">Create your first todo😉</Text>
+          <TodoList />
         </Container>
       </Section>
     </>
