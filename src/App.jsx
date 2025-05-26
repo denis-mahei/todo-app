@@ -1,4 +1,3 @@
-import { useTodoStore } from './store/useTodoStore.js';
 import Text from './components/Text/Text.jsx';
 import Container from './components/Container/Container';
 import Header from './components/Header/Header';
@@ -8,8 +7,6 @@ import EditForm from './components/EditForm/EditForm.jsx';
 import TodoList from './components/TodoList/TodoList.jsx';
 
 export const App = () => {
-  const isEdit = useTodoStore(state => state.currentTodo);
-  const todos = useTodoStore(state => state.todos);
   return (
     <>
       <Header />

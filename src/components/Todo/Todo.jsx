@@ -5,16 +5,9 @@ import { RiDeleteBinLine, RiEdit2Line } from 'react-icons/ri';
 import style from './Todo.module.css';
 
 const Todo = ({ id, index, text }) => {
-  const handleDelete = () => {
-    delTodo(id);
-  };
+  const handleDelete = () => {};
 
-  const handleEditTodo = () => {
-    setCurrentTodo({
-      id,
-      text,
-    });
-  };
+  const handleEditTodo = () => {};
   return (
     <GridItem>
       <div className={style.box}>

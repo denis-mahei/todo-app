@@ -3,13 +3,10 @@ import { FiSearch } from 'react-icons/fi';
 import style from './Form.module.css';
 
 const Form = () => {
-  const addNewTodo = useTodoStore(state => state.addTodo);
-
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
     const newTodo = form.elements.search.value;
-    addNewTodo(newTodo);
     form.reset();
   };
 
