@@ -55,7 +55,16 @@ const todosSlice = createSlice({
       })
       .addCase(editTodo.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items = action.payload;
+        const index = state.items.findIndex(
+          todo => todo.id === action.payload.id,
+        );
+        if (index !== -1) {
+          state.items[index] = action.payload;
+        }
+      })
+      .addCase(editTodo.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });

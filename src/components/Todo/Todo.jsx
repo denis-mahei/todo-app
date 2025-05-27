@@ -16,7 +16,12 @@ const Todo = ({ id, text, createdAt }) => {
   };
 
   const handleEditTodo = () => {
-    dispatch(setCurrentTodo(id));
+    dispatch(
+      setCurrentTodo({
+        id,
+        text,
+      }),
+    );
   };
   return (
     <GridItem>
