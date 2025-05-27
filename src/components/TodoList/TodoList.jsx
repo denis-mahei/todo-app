@@ -8,8 +8,8 @@ const TodoList = () => {
 
   return (
     <Grid>
-      {todos.map((todo, index) => (
-        <Todo key={todo.id} {...todo} index={index} />
+      {todos.map(todo => (
+        <Todo key={todo.id} {...todo} />
       ))}
     </Grid>
   );

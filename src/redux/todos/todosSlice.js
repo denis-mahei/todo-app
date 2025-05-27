@@ -15,7 +15,6 @@ const todosSlice = createSlice({
       })
       .addCase(fetchTodos.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
         state.items = action.payload;
       })
       .addCase(fetchTodos.rejected, (state, action) => {
@@ -39,6 +38,8 @@ const todosSlice = createSlice({
 
 export const selectTodos = state => state.todos.items;
 
-export const selectLoading = state => state.isLoading;
+export const selectLoading = state => state.todos.isLoading;
+
+export const selectError = state => state.todos.error;
 
 export const todosReducer = todosSlice.reducer;

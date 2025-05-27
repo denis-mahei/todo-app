@@ -8,12 +8,13 @@ import TodoList from './components/TodoList/TodoList.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchTodos } from './redux/todos/operations.js';
-import { selectLoading } from './redux/todos/todosSlice.js';
+import { selectLoading, selectTodos } from './redux/todos/todosSlice.js';
 import Loader from './components/Loader/Loader.jsx';
 
 export const App = () => {
   const dispatch = useDispatch();
   const loader = useSelector(selectLoading);
+  const todos = useSelector(selectTodos);
 
   useEffect(() => {
     dispatch(fetchTodos());
@@ -25,8 +26,11 @@ export const App = () => {
       <Section>
         <Container>
           {loader && <Loader />}
-          <Text textAlign="center">Create your first todo😉</Text>
-          <TodoList />
+          {todos.length > 0 ? (
+            <TodoList />
+          ) : (
+            <Text textAlign="center">Create your first todo😉</Text>
+          )}
         </Container>
       </Section>
     </>
