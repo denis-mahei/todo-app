@@ -7,6 +7,7 @@ import style from './Todo.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteTodo } from '../../redux/todos/operations.js';
 import { setCurrentTodo } from '../../redux/todos/todosSlice.js';
+import { useEffect } from 'react';
 
 const Todo = ({ id, text, createdAt }) => {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ const Todo = ({ id, text, createdAt }) => {
       }),
     );
   };
+  useEffect(() => {
+    console.log('Todo rerendered:', text);
+  }, [text]);
   return (
     <GridItem>
       <div className={style.box}>

@@ -59,7 +59,11 @@ const todosSlice = createSlice({
           todo => todo.id === action.payload.id,
         );
         if (index !== -1) {
-          state.items[index] = action.payload;
+          state.items[index] = {
+            ...state.items[index],
+            ...action.payload,
+          };
+          console.log('Updated todo:', state.items[index]);
         }
       })
       .addCase(editTodo.rejected, (state, action) => {

@@ -5,7 +5,10 @@ import style from './EditForm.module.css';
 import ModalEdit from '../ModalEdit/ModalEdit.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { editTodo } from '../../redux/todos/operations.js';
-import { selectCurrentTodo } from '../../redux/todos/todosSlice.js';
+import {
+  selectCurrentTodo,
+  setCurrentTodo,
+} from '../../redux/todos/todosSlice.js';
 
 const EditForm = () => {
   const dispatch = useDispatch();
@@ -24,7 +27,10 @@ const EditForm = () => {
           text: newTodo,
         },
       }),
-    );
+    ).then(() => {
+      console.log('Edit dispatched:', newTodo);
+      dispatch(setCurrentTodo(null));
+    });
   };
   return (
     <ModalEdit>
