@@ -1,8 +1,8 @@
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../redux/todos/operations.js';
 import { FiSearch } from 'react-icons/fi';
 
 import style from './Form.module.css';
-import { useDispatch } from 'react-redux';
-import { addTodo } from '../../redux/todos/operations.js';
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const Form = () => {
 
     const form = e.target;
     const value = form.elements.text.value;
-    dispatch(addTodo(value));
+    dispatch(addTodo({ text: value }));
     form.reset();
   };
 

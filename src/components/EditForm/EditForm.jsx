@@ -8,6 +8,7 @@ import {
   setCurrentTodo,
 } from '../../redux/todos/todosSlice.js';
 import { useState } from 'react';
+
 import style from './EditForm.module.css';
 
 const EditForm = () => {
