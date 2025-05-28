@@ -1,9 +1,9 @@
 import { createPortal } from 'react-dom';
-import { IoMdCloseCircleOutline } from 'react-icons/io';
-
-import css from './ModalEdit.module.css';
 import { useDispatch } from 'react-redux';
 import { setCurrentTodo } from '../../redux/todos/todosSlice.js';
+
+import { IoMdCloseCircleOutline } from 'react-icons/io';
+import css from './ModalEdit.module.css';
 
 const ModalEdit = ({ children }) => {
   const dispatch = useDispatch();

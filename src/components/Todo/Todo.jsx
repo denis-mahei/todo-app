@@ -1,13 +1,10 @@
-import Text from '../Text/Text.jsx';
-import GridItem from '../GridItem/GridItem.jsx';
-// import { Tempo } from '@formkit/tempo';
-import { RiDeleteBinLine, RiEdit2Line } from 'react-icons/ri';
-
-import style from './Todo.module.css';
-import { useDispatch } from 'react-redux';
 import { deleteTodo } from '../../redux/todos/operations.js';
 import { setCurrentTodo } from '../../redux/todos/todosSlice.js';
-import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { RiDeleteBinLine, RiEdit2Line } from 'react-icons/ri';
+import GridItem from '../GridItem/GridItem.jsx';
+import Text from '../Text/Text.jsx';
+import style from './Todo.module.css';
 
 const Todo = ({ id, text, createdAt }) => {
   const dispatch = useDispatch();
@@ -24,9 +21,7 @@ const Todo = ({ id, text, createdAt }) => {
       }),
     );
   };
-  useEffect(() => {
-    console.log('Todo rerendered:', text);
-  }, [text]);
+
   return (
     <GridItem>
       <div className={style.box}>

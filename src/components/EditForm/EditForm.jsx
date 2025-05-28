@@ -1,7 +1,5 @@
 import { RiSaveLine } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
-
-import style from './EditForm.module.css';
 import ModalEdit from '../ModalEdit/ModalEdit.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { editTodo } from '../../redux/todos/operations.js';
@@ -9,28 +7,28 @@ import {
   selectCurrentTodo,
   setCurrentTodo,
 } from '../../redux/todos/todosSlice.js';
+import { useState } from 'react';
+import style from './EditForm.module.css';
 
 const EditForm = () => {
   const dispatch = useDispatch();
 
   const currentTodo = useSelector(selectCurrentTodo);
+  const [text, setText] = useState(currentTodo.text || '');
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.target;
-    const newTodo = form.elements.text.value;
-    console.log(newTodo);
     dispatch(
       editTodo({
         todoId: currentTodo.id,
-        updatedTodo: {
-          text: newTodo,
-        },
+        updatedTodo: { text },
       }),
-    ).then(() => {
-      console.log('Edit dispatched:', newTodo);
-      dispatch(setCurrentTodo(null));
-    });
+    )
+      .unwrap()
+      .then(() => {
+        dispatch(setCurrentTodo(null));
+      });
+    // dispatch(setCurrentTodo(null));
   };
   return (
     <ModalEdit>
@@ -40,7 +38,8 @@ const EditForm = () => {
           placeholder="What do you want to write?"
           name="text"
           required
-          defaultValue={currentTodo.text}
+          value={text}
+          onChange={event => setText(event.target.value)}
           autoFocus
         />
         <button className={style.submitButton} type="submit">
