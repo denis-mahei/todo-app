@@ -15,7 +15,7 @@
 }
 
 .title {
-    color: var(--color-dark);
+    color: var(--color-lightBlue);
     font-size: var(--font-medium);
     font-weight: 700;
     text-transform: uppercase;
